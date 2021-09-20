@@ -4,7 +4,8 @@ Udacity Data Science Nanodegree - Recommendation Engines project
 ### Overview
 This project works with the articles hosted with IBM and analyzes user interactions to create 
 recommendations to users for content to view. This is performed via Rank and Collaborative-based
-recommendations and evaluated via SVD.
+recommendations and evaluated via SVD. Code has been leveraged from the class instructor / lessons, 
+and from the Peer/Mentor discussion boards.
 
 ### ToC
 1. [Libraries](#libraries)
