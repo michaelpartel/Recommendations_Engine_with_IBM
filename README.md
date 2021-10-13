@@ -17,30 +17,50 @@ and from the Peer/Mentor discussion boards.
 The following libraries were utilized:
 * Pandas
 * Numpy
-* Matplotlib
-* Pickle
-* Progressbar (required "pip install" in the Udacity workspace)
+* cv2
+* sklearn
+* tqdm
+
+Version requirements:
+  opencv-python==3.2.0.6
+  h5py==2.6.0
+  matplotlib==2.0.0
+  numpy==1.12.0
+  scipy==0.18.1
+  tqdm==4.11.2
+  keras==2.0.2
+  scikit-learn==0.18.1
+  pillow==4.0.0
+  ipykernel==4.6.1
+  tensorflow==1.0.0
 
 ### File Descriptions <a name="files"></a>
-* Recommendations_with_IBM.ipynb: Primary Jupyter Notebook project file containing all code. Can be run as-is.
-* Recommendations_with_IBM.html: HTLM version of the Jupyter Notebook project file.
-* Data:
-  - user-item-interactions.csv: CSV file containing user interactions with the articles (user email, article id) hosted by IBM.
-  - articles_community.csv: CSV file containing article information (title, summary, etc.)
+* dog_app.ipynb: Primary Jupyter Notebook project file containing all code. Can be run as-is.
+* extract_bottleneck_features.py: provided code to extract bottleneck features.
+* bottleneck_features
+  - DogResnet50Data.npz: bottleneck features for use with the ResNet50 model
+  - DogVGG16Data.npz: bottleneck features for use with the VGG16 model
+* haarcascades:
+  - haarcascade_frontalface_alt.xml: provided OpenCV2 face detector
+* images:
+  - assorted jpeg images of dogs and humans
+* requirements:
+  - assorted O/S requirements to run the jupyter notebook.
+* saved_models:
+  - models saved during execution in hdf5 format
 
-### Recommendations_with_IBM Summary <a name="project"></a>
+### Summary <a name="project"></a>
 The project file is based on the following structure:
-    I. Exploratory Data Analysis
-    II. Rank Based Recommendations
-    III. User-User Based Collaborative Filtering
-    IV. Content Based Recommendations (EXTRA - NOT REQUIRED)
-    V. Matrix Factorization
-Section IV was not performed (Extra).
+    Step 0: Import Datasets
+    Step 1: Detect Humans
+    Step 2: Detect Dogs
+    Step 3: Create a CNN to Classify Dog Breeds (from Scratch)
+    Step 4: Use a CNN to Classify Dog Breeds (using Transfer Learning)
+    Step 5: Create a CNN to Classify Dog Breeds (using Transfer Learning)
+    Step 6: Write your Algorithm
+    Step 7: Test Your Algorithm
 
 ### Results <a name="results"></a> 
-The overall effort was based on a very small subset of data due to the sparse nature of the original dataset. As seen in the 
-initial exploration, most users only interact with 3 or fewer articles. This leads to problems during SVD where our train / test
-data sets are heavily restricted. The resulting accuracy is "high" at 96% when using several hundred latent features, but this
-is not to be taken as representative of all the data since much of that data says there was no interaction. To improve, we would
-suggest merging in additional recommendations: continue with trying collaborative first, but combine rank and content based 
-recommendations using keywords from the title and summaries and showing the top articles from that subset of content.
+The ResNet50 model, when using transfer learning over 20 epochs, provided 79.9% accuracy and
+could identify all but one of the sample images correctly. This is likely to be due to artifacts
+present in the image which prevented sufficient features from being identified.
